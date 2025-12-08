@@ -44,7 +44,6 @@ let code0 = `Function enableShift()
 On Error GoTo errEnableShift
 
 'initialize variables
-Dim databaseLocation as String
 Dim db As DAO.Database, acc
 Dim prop As DAO.Property
 Const conPropNotFound = 3270
