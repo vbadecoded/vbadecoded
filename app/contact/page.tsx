@@ -2,12 +2,11 @@ import Image from "next/image";
 import React from "react";
 import Typography from "@mui/material/Typography";
 import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import Grow from '@mui/material/Grow';
 import Grid from '@mui/material/Grid';
-import Link from 'next/link'
 import Button from '@mui/material/Button';
+import BYAC from '../../public/images/bmc-full-logo.svg'; // Adjust path to your SVG
 
 import type { Metadata } from 'next'
 
@@ -18,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <Grid sx={{ m: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth: '1200px', justifySelf: 'center' }} spacing={3} container>
+    <Grid sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth: '1200px', justifySelf: 'center' }} spacing={3} container>
       <Grid size={{ xs: 12 }}>
         <Grow in={true}>
           <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 2, maxWidth: '800px' }}>
@@ -42,7 +41,27 @@ export default function Home() {
           </Paper>
         </Grow>
       </Grid>
-
+      <Grid size={{ xs: 12 }}>
+        <Grow in={true}>
+          <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 2, maxWidth: '800px' }}>
+            <Typography variant="h3" component="h2" sx={{ p: 1 }}>
+              Want to support me?
+            </Typography>
+            <Typography variant="body1" sx={{ p: 1 }}>
+              In reality this money will go to website/business costs - and I thank you greatly for it.
+            </Typography>
+            <Typography variant="body1" sx={{ p: 1 }}>
+              Also, I want to keep this website ad free. This will help me do so!
+            </Typography>
+            <Button href='https://buymeacoffee.com/jacobbrown' target='_blank' variant='contained' color='success'>
+              <Image src={BYAC} alt={""} style={{ width: '150px', height: 'auto' }} />
+            </Button>
+            <Typography variant="body1" sx={{ p: 1 }}>
+              Thanks for your support.
+            </Typography>
+          </Paper>
+        </Grow>
+      </Grid>
     </Grid>
   );
 }
