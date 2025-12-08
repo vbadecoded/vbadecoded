@@ -159,7 +159,7 @@ const articleData: cardObj[] = [
     ]
   },
   {
-    title: 'Does is always work?',
+    title: 'Does it always work?',
     contents: [
       {
         color: 'text.primary',

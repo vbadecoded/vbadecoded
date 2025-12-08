@@ -17,7 +17,7 @@
     "@mui/material-nextjs": "^7.3.3",
     "dayjs": "^1.11.19",
     "highlight.js": "^11.11.1",
-    "next": "15.5.4",
+    "next": "^15.5.7",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "sugar-high": "^0.9.4"
