@@ -3,8 +3,9 @@ import dayjs from "dayjs";
 
 import ArticleHeader from "@/misc/article_header";
 import ArticleCard from '@/misc/article_card'
+import VideoLink from "@/misc/article_videoLink";
 
-import { headerObj, cardObj, articleObj } from '@/misc/articleTypes'
+import { headerObj, cardObj, articleObj, videoLinkObj } from '@/misc/articleTypes'
 
 import type { Metadata } from 'next'
 
@@ -271,6 +272,11 @@ const articleData: cardObj[] = [
   },
 ]
 
+const videoDataObj: videoLinkObj = {
+  title: 'Click here to watch the YouTube video!',
+  link: 'https://youtu.be/mQj7ahbXyYY'
+}
+
 export const fullArticle: articleObj = {
   header: headerData,
   content: articleData
@@ -288,6 +294,8 @@ export default function Home() {
     >
 
       <ArticleHeader headerInfo={headerData} />
+
+      <VideoLink videoInfo={videoDataObj} />
 
       {articleData.map((x, xIndex) => (
         <ArticleCard cardInfo={x} key={xIndex} />
