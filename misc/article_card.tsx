@@ -30,10 +30,10 @@ export default function ArticleCard(cardProp: cardProps) {
                             <Typography sx={{ pt: 2, textAlign: 'center' }} variant="h5" color='text.secondary'>{card.title}</Typography>
                         </Grid>
                         {card.contents.map((x, xIndex) => (
-                            <Grid key={xIndex} size={x.customXs ? x.customXs : { xs: 12 }}>
+                            <Grid key={xIndex} size={x.customXs ? x.customXs : { xs: 12 }} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'stretch', alignItems: 'center' }}>
                                 <Typography color={x.color} variant={x.variant} sx={{ maxWidth: '800px', pt: 2, justifySelf: 'center' }}>{x.text}</Typography>
                                 {x.image !== undefined ?
-                                    <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
+                                    <Card elevation={1} sx={{ borderRadius: '10px' }}>
                                         <CardMedia
                                             component="img"
                                             src={x.image}
@@ -46,7 +46,7 @@ export default function ArticleCard(cardProp: cardProps) {
                                     : null}
                                 {x.list !== undefined ?
                                     <List
-                                        sx={{ maxWidth: 600, bgcolor: 'background.paper', justifySelf: 'center' }}
+                                        sx={{ maxWidth: 600, bgcolor: 'background.paper' }}
                                     >
                                         {x.list.map((y, yIndex) => (
                                             <Box key={yIndex}>
@@ -55,13 +55,16 @@ export default function ArticleCard(cardProp: cardProps) {
                                                 </ListItem>
                                                 {
                                                     y.image !== undefined ?
-                                                        <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
-                                                            <CardMedia
-                                                                component="img"
-                                                                src={y.image}
-                                                                sx={{ maxHeight: 600 }}
-                                                            />
-                                                        </Card>
+                                                        <ListItem>
+                                                            <Card elevation={1} sx={{ borderRadius: '10px' }}>
+                                                                <CardMedia
+                                                                    component="img"
+                                                                    src={y.image}
+                                                                    sx={{ maxHeight: 600 }}
+                                                                />
+                                                            </Card>
+                                                        </ListItem>
+
                                                         : null
                                                 }
                                             </Box>
