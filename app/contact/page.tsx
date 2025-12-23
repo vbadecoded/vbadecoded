@@ -53,7 +53,7 @@ export default function Home() {
             <Typography variant="body1" sx={{ p: 1 }}>
               Also, I want to keep this website ad free. This will help me do so!
             </Typography>
-            <Button href='https://buymeacoffee.com/jacobbrown' target='_blank' variant='contained' color='success'>
+            <Button href='https://buymeacoffee.com/vbadecoded' target='_blank' variant='contained' color='success'>
               <Image src={BYAC} alt={""} style={{ width: '150px', height: 'auto' }} />
             </Button>
             <Typography variant="body1" sx={{ p: 1 }}>
