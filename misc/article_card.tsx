@@ -1,6 +1,5 @@
 import React from 'react';
 import Typography from "@mui/material/Typography";
-import Stack from '@mui/material/Stack';
 import Grow from '@mui/material/Grow';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
@@ -11,8 +10,9 @@ import Alert from '@mui/material/Alert';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-import CodeBlock from '../misc/codeBlock'
+import Button from '@mui/material/Button';
 
+import CodeBlock from '../misc/codeBlock'
 import { cardObj } from './articleTypes'
 
 interface cardProps {
@@ -32,6 +32,7 @@ export default function ArticleCard(cardProp: cardProps) {
                         {card.contents.map((x, xIndex) => (
                             <Grid key={xIndex} size={x.customXs ? x.customXs : { xs: 12 }} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'stretch', alignItems: 'center' }}>
                                 <Typography color={x.color} variant={x.variant} sx={{ maxWidth: '800px', pt: 2, justifySelf: 'center' }}>{x.text}</Typography>
+                                {x.linkTitle && x.linkLocation ? <Button variant='outlined' target='blank' href={x.linkLocation}>{x.linkTitle}</Button> : null}
                                 {x.image !== undefined ?
                                     <Card elevation={1} sx={{ borderRadius: '10px' }}>
                                         <CardMedia
