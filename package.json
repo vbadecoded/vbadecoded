@@ -16,6 +16,7 @@
     "@mui/material": "^7.3.4",
     "@mui/material-nextjs": "^7.3.3",
     "@svgr/webpack": "^8.1.0",
+    "@vercel/analytics": "^1.6.1",
     "dayjs": "^1.11.19",
     "highlight.js": "^11.11.1",
     "next": "^15.5.7",

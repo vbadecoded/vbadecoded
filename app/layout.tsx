@@ -5,6 +5,8 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider, createTheme, Theme as themeType } from '@mui/material/styles';
 
+import { Analytics } from "@vercel/analytics/next"
+
 import Typography from '@mui/material/Typography';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -17,11 +19,14 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import Link from 'next/link'
-import MenuIcon from '@mui/icons-material/Menu';
-import YouTubeIcon from '@mui/icons-material/YouTube';
 import Grid from '@mui/material/Grid';
 
 import Icon from "@mui/material/Icon"
+
+import MenuIcon from '@mui/icons-material/Menu';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import RedditIcon from '@mui/icons-material/Reddit';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const primaryMain = '#5f8fa5ff'
 const secondaryMain = '#698679'
@@ -111,6 +116,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline />
+            <Analytics />
             <AppBar color='primary' component="nav" elevation={5} variant='outlined' sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
               <Toolbar variant='dense' sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} component={Link} href="/">
@@ -167,12 +173,24 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <Button component={Link} href='/contact' variant='outlined' color='inherit' sx={{ m: 1 }}>Contact</Button>
               </Grid>
               <Grid size={{ xs: 12, md: 6 }}>
-                <Typography>Check out our YouTube channel for video tutorials!</Typography>
+                <Typography>Here are all our other resources!</Typography>
                 <IconButton
                   color='inherit'
                   href='https://www.youtube.com/@VBADecoded'
                 >
                   <YouTubeIcon />
+                </IconButton>
+                <IconButton
+                  color='inherit'
+                  href='https://www.reddit.com/user/Huge-Object-7087/'
+                >
+                  <RedditIcon />
+                </IconButton>
+                <IconButton
+                  color='inherit'
+                  href='https://github.com/vbadecoded'
+                >
+                  <GitHubIcon />
                 </IconButton>
               </Grid>
               <Grid size={{ xs: 12 }}>
