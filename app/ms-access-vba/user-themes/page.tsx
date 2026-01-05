@@ -90,6 +90,59 @@ const articleData: cardObj[] = [
     ]
   },
   {
+    title: 'OK, but does it actually look good?',
+    contents: [
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `Let's take a look!`
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `In the sample database, (link below) I have a sample task tracker so you can test what it will actually look like. Here are some of the pictures...`,
+        linkTitle: 'MS Access Theme Editor',
+        linkLocation: 'https://github.com/vbadecoded/ms-access-theme-editor/'
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `Neutral Norm`,
+        image: '/images/ms-access-vba/user-themes/tan_tracker.png'
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: ``,
+        image: '/images/ms-access-vba/user-themes/tan_details.png'
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `Dark Grey Goodness`,
+        image: '/images/ms-access-vba/user-themes/dark_tracker.png'
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: ``,
+        image: '/images/ms-access-vba/user-themes/dark_details.png'
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `As light as Possible`,
+        image: '/images/ms-access-vba/user-themes/light_tracker.png'
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: ``,
+        image: '/images/ms-access-vba/user-themes/light_details.png'
+      },
+    ]
+  },
+  {
     title: 'The Setup',
     contents: [
       {
