@@ -9,7 +9,7 @@ import { headerObj, cardObj, articleObj } from '@/misc/articleTypes'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'User Themes',
+  title: 'Customizable, Run-Time User Themes in MS Access',
   description: `That's right. User-set themes in MS Access (Dark Mode included!)`,
 }
 
@@ -19,8 +19,8 @@ copy \\\\standardCopyLocation\databaseName.accdb "C:\\\databaseName\\\databaseNa
 start "msaccess.exe" "C:\\\databaseName\\\databaseName.accdb"`
 
 const headerData: headerObj = {
-  title: 'User Themes',
-  subTitle: `That's right. User-set themes in MS Access (Dark Mode included!)`,
+  title: 'Customizable, Run-Time User Themes in MS Access',
+  subTitle: `That's right. Dark Mode included!`,
   note: 'Written by Jacob, January 2026',
   imageSrc: '/images/jacob_brown.jpg',
   imageAlt: 'Jacob Brown',
@@ -30,13 +30,15 @@ const headerData: headerObj = {
 
 const articleData: cardObj[] = [
   {
-    title: 'NOTE',
+    title: 'Sample Database',
     contents: [
       {
         color: 'text.primary',
-        variant: 'body1',
-        text: `This article is currently a work in progress. I wanted to publish it quickly so you can see the basics and start using it while I get more documentation made.`,
-      }
+        variant: 'h6',
+        text: `Just looking for the sample database? Here is the GitHub Repository.`,
+        linkTitle: 'MS Access Theme Editor',
+        linkLocation: 'https://github.com/vbadecoded/ms-access-theme-editor/'
+      },
     ]
   },
   {
@@ -44,8 +46,30 @@ const articleData: cardObj[] = [
     contents: [
       {
         color: 'text.primary',
-        variant: 'body1',
+        variant: 'h5',
         text: `Normal MS Access Looks Old. I think we've all experienced this issue...`,
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `This is from a default template in MS Access. Not the worst I've seen, but looks like it came from Windows XP.`,
+        image: '/images/ms-access-vba/user-themes/default.png'
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `This is another MS Access template. A little better, maybe Windows 7 now. Still a lot to be desired.`,
+        image: '/images/ms-access-vba/user-themes/default1.png'
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `Other than just looks, customization is a big missing factor. Having the ability to switch themes at run-time is what I'm really tackling here. Here are some of the issues laid out...`,
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: ``,
         list: [
           {
             primaryText: `1. Dark mode is hard to impelement`,
@@ -60,11 +84,6 @@ const articleData: cardObj[] = [
             secondaryText: `Ew.`
           },
         ]
-      },
-      {
-        color: 'text.primary',
-        variant: 'body1',
-        text: `I've read about many people (especially executives) not considering MS Access at all simply because it doesn't look modern. Well, here you go. It's fixed. (Mostly)`,
       }
     ]
   },
@@ -73,8 +92,13 @@ const articleData: cardObj[] = [
     contents: [
       {
         color: 'text.primary',
-        variant: 'body1',
+        variant: 'h6',
         text: `Many people will say this is a waste of time. I disagree.`
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `I've read about many people (especially executives) not considering MS Access at all simply because it doesn't look modern.`,
       },
       {
         color: 'text.primary',
@@ -95,18 +119,29 @@ const articleData: cardObj[] = [
       {
         color: 'text.primary',
         variant: 'body1',
-        text: `Let's take a look!`
+        text: `Let's take a look! In the sample database, all you have to do is go to the Theme Editor and click on a theme name to set it.`,
+        image: '/images/ms-access-vba/user-themes/grey_selector.png'
       },
       {
         color: 'text.primary',
         variant: 'body1',
-        text: `In the sample database, (link below) I have a sample task tracker so you can test what it will actually look like. Here are some of the pictures...`,
+        text: `Then, close that screen and go to the sample Task Tracker.`,
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: ``,
         linkTitle: 'MS Access Theme Editor',
         linkLocation: 'https://github.com/vbadecoded/ms-access-theme-editor/'
       },
       {
         color: 'text.primary',
         variant: 'body1',
+        text: 'Here are my favorite themes...'
+      },
+      {
+        color: 'text.primary',
+        variant: 'h6',
         text: `Neutral Norm`,
         image: '/images/ms-access-vba/user-themes/tan_tracker.png'
       },
@@ -118,7 +153,7 @@ const articleData: cardObj[] = [
       },
       {
         color: 'text.primary',
-        variant: 'body1',
+        variant: 'h6',
         text: `Dark Grey Goodness`,
         image: '/images/ms-access-vba/user-themes/dark_tracker.png'
       },
@@ -130,7 +165,7 @@ const articleData: cardObj[] = [
       },
       {
         color: 'text.primary',
-        variant: 'body1',
+        variant: 'h6',
         text: `As light as Possible`,
         image: '/images/ms-access-vba/user-themes/light_tracker.png'
       },
@@ -139,6 +174,29 @@ const articleData: cardObj[] = [
         variant: 'body1',
         text: ``,
         image: '/images/ms-access-vba/user-themes/light_details.png'
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `You'll notice on the Theme Editor page there is the sample layouts as well. These show how I usually set things up using Card based UIs.`
+      },
+      {
+        color: 'text.primary',
+        variant: 'h6',
+        text: `Midnight Blue`,
+        image: '/images/ms-access-vba/user-themes/blue_layout.png'
+      },
+      {
+        color: 'text.primary',
+        variant: 'h6',
+        text: `Merry Christmas`,
+        image: '/images/ms-access-vba/user-themes/christmas_layout.png'
+      },
+      {
+        color: 'text.primary',
+        variant: 'h6',
+        text: `Dark Grey Goodness`,
+        image: '/images/ms-access-vba/user-themes/grey_layout.png'
       },
     ]
   },
@@ -149,7 +207,9 @@ const articleData: cardObj[] = [
         color: 'text.primary',
         variant: 'body1',
         text: `There's not a ton going on.
-        Basically there is a giant Select Case that loops through all the controls on the selected form and sets them to values that are calculated/defined based on the theme table.`,
+        Basically there is a giant Select Case that loops through all the controls on the selected form and sets them to values 
+        that are calculated/defined based on the theme table. I'm not going to put the code in this article since it will be changing as 
+        I continue to develop it - also it is quite large. You can find the most up to date code in the GitHub Repository.`,
       },
       {
         color: 'text.primary',
@@ -185,12 +245,12 @@ const articleData: cardObj[] = [
       {
         color: 'text.primary',
         variant: 'body1',
-        text: `This sample database also includes a theme editor (hence the name) that allows you to edit the default themes and to add new ones.`
+        text: `This sample database also includes the theme editor (hence the name) that allows you to edit the default themes and to add new ones.`
       },
       {
         color: 'text.primary',
         variant: 'body1',
-        text: `To add this to an existing MS Access Database, just export the frmThemeEditor and sfrmTheme Editor and the setTheme module to your database.`,
+        text: `To add this to an existing MS Access Database, just export the frmThemeEditor, sfrmThemeEditor and the VBA module to your database.`,
       },
       {
         color: 'text.primary',

@@ -14,6 +14,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import ListItemButton from '@mui/material/ListItemButton';
+import Chip from '@mui/material/Chip';
 
 import { articleObj } from './articleTypes';
 
@@ -42,17 +43,16 @@ export default function ArticleLink(articleProp: articleProps) {
                                     <Avatar alt={x.header.imageAlt} src={x.header.imageSrc} />
                                 </ListItemAvatar>
                                 <ListItemText
-                                    primary={x.header.title}
+                                    primary={
+                                        <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+                                            {x.header.title + ' '}
+                                            <Chip label={dayjs(x.header.publishDate).format('MMMM YYYY')} size='small' />
+                                        </Box>
+
+                                    }
                                     secondary={
                                         <React.Fragment>
-                                            <Typography
-                                                component="span"
-                                                variant="body2"
-                                                sx={{ color: 'text.primary', display: 'inline' }}
-                                            >
-                                                {dayjs(x.header.publishDate).format('MMMM YYYY') + ' - '}
-                                            </Typography>
-                                            {x.content[1].contents[0].text.slice(0, 75) + '...'}
+                                            {x.content[1].contents[0].text.slice(0, 65) + '...'}
                                         </React.Fragment>
                                     }
                                 />

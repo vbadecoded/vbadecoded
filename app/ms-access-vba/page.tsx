@@ -13,12 +13,14 @@ import { fullArticle as encryptArticle } from "./encrypt-database/page";
 import { fullArticle as enableShiftArticle } from "./force-reenable-shift-key-bypass/page";
 import { fullArticle as findPwArticle } from "./find-encryption-password/page";
 import { fullArticle as grabLatestVersion } from "./always-grab-latest-version/page";
+import { fullArticle as userThemes } from "./user-themes/page";
 
 export const allArticles: articleObj[] = [
   enableShiftArticle,
   encryptArticle,
   findPwArticle,
-  grabLatestVersion
+  grabLatestVersion,
+  userThemes
 ]
 
 import type { Metadata } from 'next'
