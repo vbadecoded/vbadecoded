@@ -21,7 +21,9 @@ export interface cardContentObj {
     alert?: alertObj,
     list?: listObj[],
     code?: string,
-    customXs?: GridSize
+    customXs?: GridSize,
+    linkTitle?: string,
+    linkLocation?: string
 }
 
 export interface cardObj {
