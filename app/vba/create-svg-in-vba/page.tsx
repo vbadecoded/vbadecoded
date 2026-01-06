@@ -8,6 +8,52 @@ import VideoLink from "@/misc/article_videoLink";
 
 import { headerObj, cardObj, videoLinkObj, articleObj } from '@/misc/articleTypes'
 
+const code0: string = `Function getAvatar(userName As String, initials As String)
+On Error GoTo Err_Handler
+
+Dim FilePath As String
+Dim fileNumber As Integer
+
+FilePath = "\\data\mdbdata\WorkingDB\Pictures\Avatars\svg\" & userName & ".svg"
+fileNumber = FreeFile
+Open FilePath For Output As #fileNumber
+
+Dim randomR As Integer, randomG As Integer, randomB As Integer
+Dim inputColor, tempHex, fullHex
+
+randomR = randomNumber(30, 170)
+randomG = randomNumber(30, 170)
+randomB = randomNumber(30, 170)
+
+'try to further randomize the color
+Randomize
+Select Case True
+    Case randomR > randomG And randomR > randomB
+        randomG = randomG * Rnd()
+    Case randomG > randomB And randomG > randomR
+        randomB = randomB * Rnd()
+    Case Else
+        randomR = randomR * Rnd()
+End Select
+
+inputColor = rgb(randomR, randomG, randomB)
+tempHex = Hex(inputColor)
+fullHex = Mid(tempHex, 5, 2) & Mid(tempHex, 3, 2) & Mid(tempHex, 1, 2)
+
+Print #fileNumber, "<svg xmlns=""http://www.w3.org/2000/svg"" viewBox=""0 0 100 100""><mask id=""viewboxMask"">" & _
+"<rect width=""100"" height=""100"" rx=""50"" ry=""50"" x=""0"" y=""0"" fill=""#fff"" /></mask><g mask=""url(#viewboxMask)""><rect fill=""#" & fullHex & """ widt" & _
+"h=""100"" height=""100"" x=""0"" y=""0"" /><text x=""50%"" y=""50%"" font-family=""Arial, sans-serif"" font-size=""50"" font-" & _
+"weight=""600"" fill=""#ffffff"" text-anchor=""middle"" dy=""17.800"">" & initials & "</text></g></svg>"
+
+Close #fileNumber
+
+Call convertSVGtoPNG(FilePath, "\\data\mdbdata\WorkingDB\Pictures\Avatars\" & userName & ".png")
+
+Exit Function
+Err_Handler:
+    Call handleError("wdbGlobalFunctions", "getAvatar", Err.DESCRIPTION, Err.number)
+End Function`
+
 const headerData: headerObj = {
   title: 'Create an SVG from VBA',
   subTitle: `From SVG code, here's how you do it. No PowerPoint!`,
@@ -36,7 +82,6 @@ const articleData: cardObj[] = [
         variant: 'body1',
         text: `The out-of-the-box editing experience is a little hard to use in my opinion... and most others...
                 Not only is there no 'Dark Mode' switch built in, but even the font is hard to read. Exhibit A, the below screenshot.`,
-        image: '/images/vba/vba-editor-dark-mode/lightMode_window.png'
       }
     ]
   },
@@ -48,111 +93,29 @@ const articleData: cardObj[] = [
         variant: 'body1',
         text: `This is super easy to set up, but not quite the simple checkbox that I would want it to be.
                 Here's what my VBE looks like. You can see not quite everything is dark-themed. The toolbars are still light even with these settings applied.`,
-        image: '/images/vba/vba-editor-dark-mode/darkMode_window.png'
       },
+
     ]
   },
   {
-    title: 'First, head up to the Tools-Options area',
+    title: 'How the heck?',
     contents: [
       {
         color: 'text.primary',
         variant: 'body1',
-        text: `Click on Tools, then Options:`,
-        image: '/images/vba/vba-editor-dark-mode/howTo_0.png'
+        text: `Did you forget your password? Well you MIGHT be in luck... maybe...`,
+        alert: {
+          title: `Important Note here: this method only works if you used a split database structure. If you only have an all-in-one database (tables and forms and everything is
+          all in one file) then you are SOL unless you use a password recovery service`,
+          severity: 'warning'
+        }
       },
       {
         color: 'text.primary',
         variant: 'body1',
-        text: `Then this pop-up should appear:`,
-        image: '/images/vba/vba-editor-dark-mode/howTo_1.png'
-      },
-      {
-        color: 'text.primary',
-        variant: 'body1',
-        text: `All you need to do is edit each line item in the Code Colors area, using the Foreground and Background color dropdowns.
-                This is also the area where you can change the font size and type if you so desire.
-                If you want to know my preferences, see below, I took a screenshot of each item.`,
-      },
-    ]
-  },
-  {
-    title: 'My Preferences',
-    contents: [
-      {
-        color: 'text.primary',
-        variant: 'body1',
-        text: `Here are the settings I use. Feel free to copy.`
-      },
-      {
-        color: 'text.primary',
-        variant: 'body1',
-        text: `Normal Text`,
-        image: '/images/vba/vba-editor-dark-mode/theme_0.png',
-        customXs: 'auto'
-      },
-      {
-        color: 'text.primary',
-        variant: 'body1',
-        text: `Selection Text`,
-        image: '/images/vba/vba-editor-dark-mode/theme_1.png',
-        customXs: 'auto'
-      },
-      {
-        color: 'text.primary',
-        variant: 'body1',
-        text: `Syntax Error Text`,
-        image: '/images/vba/vba-editor-dark-mode/theme_2.png',
-        customXs: 'auto'
-      },
-      {
-        color: 'text.primary',
-        variant: 'body1',
-        text: `Execution Point Text`,
-        image: '/images/vba/vba-editor-dark-mode/theme_3.png',
-        customXs: 'auto'
-      },
-      {
-        color: 'text.primary',
-        variant: 'body1',
-        text: `Breakpoint Text`,
-        image: '/images/vba/vba-editor-dark-mode/theme_4.png',
-        customXs: 'auto'
-      },
-      {
-        color: 'text.primary',
-        variant: 'body1',
-        text: `Comment Text`,
-        image: '/images/vba/vba-editor-dark-mode/theme_5.png',
-        customXs: 'auto'
-      },
-      {
-        color: 'text.primary',
-        variant: 'body1',
-        text: `Keyword Text`,
-        image: '/images/vba/vba-editor-dark-mode/theme_6.png',
-        customXs: 'auto'
-      },
-      {
-        color: 'text.primary',
-        variant: 'body1',
-        text: `Indentifier Text`,
-        image: '/images/vba/vba-editor-dark-mode/theme_7.png',
-        customXs: 'auto'
-      },
-      {
-        color: 'text.primary',
-        variant: 'body1',
-        text: `Bookmark Text`,
-        image: '/images/vba/vba-editor-dark-mode/theme_8.png',
-        customXs: 'auto'
-      },
-      {
-        color: 'text.primary',
-        variant: 'body1',
-        text: `Call Return Text`,
-        image: '/images/vba/vba-editor-dark-mode/theme_9.png',
-        customXs: 'auto'
+        text: `Do you have access to the Front End file? Here\'s the easiest method. In the immediate window, just type this and it\'ll give you the connection string,
+         which includes the password for MS Access Databases.`,
+        code: code0
       },
     ]
   },
@@ -186,7 +149,7 @@ export default function Home() {
 
       <ArticleHeader headerInfo={headerData} />
 
-      <VideoLink videoInfo={videoDataObj} />
+      {/* <VideoLink videoInfo={videoDataObj} /> */}
 
       {articleData.map((x, xIndex) => (
         <ArticleCard cardInfo={x} key={xIndex} />
