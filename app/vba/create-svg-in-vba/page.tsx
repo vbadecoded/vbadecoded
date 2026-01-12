@@ -134,7 +134,7 @@ const articleData: cardObj[] = [
 
 const videoDataObj: videoLinkObj = {
   title: 'Click here to watch the YouTube video!',
-  link: 'https://youtu.be/YRpptzMkuHc'
+  link: ''
 }
 
 export const fullArticle: articleObj = {
